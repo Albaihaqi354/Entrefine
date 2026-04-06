@@ -1,26 +1,80 @@
+/* Tailwind V4 */
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --background: #F8F8F8;
+  --foreground: #000000;
+  
+  /* Brand Palette */
+  --brand-cream: #F9EFE5;
+  --brand-black: #000000;
+  
+  /* Base Palette */
+  --base-grey-1: #7F8790;
+  --base-grey-2: #8F92A1;
+  --base-bg-light: #F8F8F8;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --luxury-glass: rgba(255, 255, 255, 0.8);
+  --luxury-border: rgba(0, 0, 0, 0.05);
+  --luxury-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+
+  /* Channel Colors (Keeping for context) */
+  --color-shopee: #ee4d2d;
+  --color-tiktok: #000000;
+  --color-tokopedia: #00AA5B;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #000000;
+    --foreground: #f5f5f7;
+    --luxury-glass: rgba(20, 20, 20, 0.7);
+    --luxury-border: rgba(255, 255, 255, 0.1);
   }
+}
+
+/* Luxury Utilities */
+.glass {
+  background: var(--luxury-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--luxury-border);
+  box-shadow: var(--luxury-shadow);
+}
+
+.luxury-card {
+  @apply rounded-2xl p-6 transition-all duration-300;
+  background: var(--luxury-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--luxury-border);
+  box-shadow: var(--luxury-shadow);
+}
+
+.luxury-card:hover {
+  @apply scale-[1.01] -translate-y-1;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.premium-text {
+  background: linear-gradient(135deg, #1d1d1f 0%, #6e6e73 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .premium-text {
+  background: linear-gradient(135deg, #f5f5f7 0%, #86868b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
 }

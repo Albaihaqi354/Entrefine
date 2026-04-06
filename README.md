@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Omnichannel Finance Dashboard
 
-## Getting Started
+A single-page dashboard for finance/admin teams to monitor business performance across Shopee, TikTok Shop, and Tokopedia.
 
-First, run the development server:
+**Live URL:** _[add after deploy]_
+
+---
+
+## What I Built
+
+One dashboard page that processes the provided CSV on the client side — no backend, no database.
+
+**Metrics shown:**
+- **Net Revenue** — total from completed orders only (not gross)
+- **Order Volume** — total transactions across all channels
+- **AOV** — average order value from completed orders
+- **Success Rate** — % of orders that completed successfully
+
+**Insights:**
+- Daily revenue trend chart with date labels
+- Market share breakdown per channel (Shopee, TikTok, Tokopedia)
+- Automatic anomaly alerts if cancellation rate is high (≥15% warning, ≥25% critical)
+- Per-channel health indicator showing success rate and cancellations
+
+**Interactions:**
+- Search by order ID
+- Filter by sales channel
+- Pagination (20 rows per page)
+
+---
+
+## What I Prioritized
+
+Net revenue over gross — cancelled orders don't count as income. Success Rate matters more than just volume. The anomaly section exists because "detect issues early" was explicitly in the requirements.
+
+## What I Intentionally Left Out
+
+- Date range picker — the dataset covers a fixed period, so filtering by date adds complexity without much value here
+- Export to CSV/Excel — not relevant for a monitoring dashboard
+- User authentication — not part of the task scope
+- Backend/API — the task explicitly said no backend needed
+
+## How a User Would Use This Daily
+
+Open the dashboard → check the 4 KPI cards for a quick overview → look at the anomaly section to see if anything needs attention → scroll to the trend chart to spot revenue dips → use the table to investigate specific orders if needed.
+
+---
+
+## Tech Stack
+
+- Next.js 16 (App Router)
+- TypeScript
+- Tailwind CSS
+- Recharts (charts)
+- CSV parsed client-side with native JS
+
+## Run Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000)
