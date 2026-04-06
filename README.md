@@ -2,7 +2,7 @@
 
 A single-page dashboard for finance/admin teams to monitor business performance across Shopee, TikTok Shop, and Tokopedia.
 
-**Live URL:** _[add after deploy]_
+**Live URL:** https://entrefine-six.vercel.app/
 
 ---
 
